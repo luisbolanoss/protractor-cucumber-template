@@ -5,6 +5,12 @@ import { appConfig } from './config';
 export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   baseUrl: appConfig.baseUrl,
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {
+      args: [ '--headless', '--disable-gpu', '--window-size=800,600' ]
+    }
+  },
   cucumberOpts: {
     'format': [
       './node_modules/cucumber-pretty'
