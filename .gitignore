@@ -1,0 +1,8 @@
+# The node dependencies folder
+node_modules
+
+# transpiled
+dist
+
+# package-lock.json
+package-lock.json

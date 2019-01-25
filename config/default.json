@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://www.google.com",
+  "timeouts": {
+    "getPageTimeout": 30000,
+    "implicitlyWait": 60000
+  }
+}
