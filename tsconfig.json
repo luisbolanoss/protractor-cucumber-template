@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {                   
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "./",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "traceResolution": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true
+  }
+}
