@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://www.google.com",
+  "retryFailedTest": 1,
   "timeouts": {
     "getPageTimeout": 30000,
     "implicitlyWait": 60000
