@@ -38,6 +38,7 @@
     "cucumber-pretty": "^1.5.0",
     "protractor": "^5.4.2",
     "protractor-cucumber-framework": "^6.1.1",
+    "protractor-retry": "^1.2.6",
     "ts-node": "^8.0.1",
     "tslint": "^5.12.1",
     "tslint-eslint-rules": "^5.4.0",

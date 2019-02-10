@@ -1,9 +1,13 @@
 import { browser, Config } from 'protractor';
+import { retry } from 'protractor-retry';
 import { FileDetector } from 'selenium-webdriver/remote';
 import { appConfig } from './config';
 
 export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
+  afterLaunch: () => {
+    return retry.afterLaunch(appConfig.retryFailedTest);
+  },
   baseUrl: appConfig.baseUrl,
   cucumberOpts: {
     'format': [
@@ -16,8 +20,6 @@ export const config: Config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   getPageTimeout: appConfig.timeouts.long,
-<<<<<<< Updated upstream
-=======
   multiCapabilities: [
     {
       browserName: 'chrome'
@@ -29,12 +31,15 @@ export const config: Config = {
   onCleanUp: (results) => {
      retry.onCleanUp(results);
   },
->>>>>>> Stashed changes
+  onCleanUp: (results) => {
+     retry.onCleanUp(results);
+  },
   onPrepare: () => {
     browser.ignoreSynchronization = true;
     browser.manage().window().maximize();
     browser.manage().timeouts().implicitlyWait(appConfig.timeouts.implicitlyWait);
     browser.setFileDetector(new FileDetector());
+    retry.onPrepare();
   },
   seleniumAddress: 'http://192.168.0.5:4444/wd/hub',
   specs: [
