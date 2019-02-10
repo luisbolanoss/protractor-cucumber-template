@@ -16,12 +16,27 @@ export const config: Config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   getPageTimeout: appConfig.timeouts.long,
+<<<<<<< Updated upstream
+=======
+  multiCapabilities: [
+    {
+      browserName: 'chrome'
+    },
+    {
+      browserName: 'firefox'
+    }
+  ],
+  onCleanUp: (results) => {
+     retry.onCleanUp(results);
+  },
+>>>>>>> Stashed changes
   onPrepare: () => {
     browser.ignoreSynchronization = true;
     browser.manage().window().maximize();
     browser.manage().timeouts().implicitlyWait(appConfig.timeouts.implicitlyWait);
     browser.setFileDetector(new FileDetector());
   },
+  seleniumAddress: 'http://192.168.0.5:4444/wd/hub',
   specs: [
     '../test/features/**/*.feature'
   ]
