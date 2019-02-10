@@ -3,6 +3,9 @@ import { retry } from 'protractor-retry';
 import { FileDetector } from 'selenium-webdriver/remote';
 import { appConfig } from './config';
 
+const browserstackUser: string = process.env.user;
+const browserstackKey: string = process.env.pwd;
+
 export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   afterLaunch: () => {
@@ -20,6 +23,28 @@ export const config: Config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   getPageTimeout: appConfig.timeouts.long,
+  multiCapabilities: [
+    {
+      'browserName': 'Chrome',
+      'browserstack.key': browserstackKey,
+      'browserstack.user': browserstackUser
+    },
+    {
+      'browserName': 'Safari',
+      'browserstack.key': browserstackKey,
+      'browserstack.user': browserstackUser
+    },
+    {
+      'browserName': 'Firefox',
+      'browserstack.key': browserstackKey,
+      'browserstack.user': browserstackUser
+    },
+    {
+      'browserName': 'IE',
+      'browserstack.key': browserstackKey,
+      'browserstack.user': browserstackUser
+    }
+  ],
   onCleanUp: (results) => {
      retry.onCleanUp(results);
   },
@@ -30,6 +55,7 @@ export const config: Config = {
     browser.setFileDetector(new FileDetector());
     retry.onPrepare();
   },
+  seleniumAddress: 'http://hub-cloud.browserstack.com/wd/hub',
   specs: [
     '../test/features/**/*.feature'
   ]
