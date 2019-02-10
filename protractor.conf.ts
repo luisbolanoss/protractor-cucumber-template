@@ -31,9 +31,6 @@ export const config: Config = {
   onCleanUp: (results) => {
      retry.onCleanUp(results);
   },
-  onCleanUp: (results) => {
-     retry.onCleanUp(results);
-  },
   onPrepare: () => {
     browser.ignoreSynchronization = true;
     browser.manage().window().maximize();
@@ -41,7 +38,7 @@ export const config: Config = {
     browser.setFileDetector(new FileDetector());
     retry.onPrepare();
   },
-  seleniumAddress: 'http://192.168.0.5:4444/wd/hub',
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: [
     '../test/features/**/*.feature'
   ]
