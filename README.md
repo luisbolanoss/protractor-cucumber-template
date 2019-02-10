@@ -6,6 +6,12 @@ In order to install dependencies execute the following command.
 
 ```sh npm install ```
 
+## Define browserstack user and key
+
+```sh
+export user [browserstack user]
+export pwd [browserstack key]
+```
 
 ## Run the test
 In order to run tests execute the following command.
