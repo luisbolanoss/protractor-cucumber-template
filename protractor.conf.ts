@@ -20,6 +20,14 @@ export const config: Config = {
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   getPageTimeout: appConfig.timeouts.long,
+  multiCapabilities: [
+    {
+      browserName: 'chrome'
+    },
+    {
+      browserName: 'firefox'
+    }
+  ],
   onCleanUp: (results) => {
      retry.onCleanUp(results);
   },
@@ -30,6 +38,7 @@ export const config: Config = {
     browser.setFileDetector(new FileDetector());
     retry.onPrepare();
   },
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: [
     '../test/features/**/*.feature'
   ]
