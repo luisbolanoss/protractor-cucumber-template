@@ -10,11 +10,7 @@ pipeline {
     }
     stages {
         stage('DockerComposeBuild') {
-            [
-            $class: 'DockerComposeBuild',
-            dockerComposeFile: './docker-compose.yml',
-            useCustomDockerComposeFile: true
-            ]
+            sh 'docker-compose up -d'
         }
         stage('Build') { 
             steps {
