@@ -6,7 +6,6 @@ pipeline {
     }
     environment {
         HOME = '.'
-        DEPLOY = "${httpRequestTo.status}"
     }
     stages {
         stage('DockerComposeBuild') {
