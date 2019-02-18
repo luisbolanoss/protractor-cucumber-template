@@ -10,14 +10,16 @@ pipeline {
     }
     stages {
         stage('DockerComposeBuild') {
-            sh 'docker-compose up -d'
+             steps {
+                sh 'docker-compose up -d'
+             }
         }
-        stage('Build') { 
+        stage('Build') {
             steps {
                 sh 'npm install' 
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
                 sh 'npm test' 
             }
