@@ -9,11 +9,13 @@ pipeline {
         DEPLOY = "${httpRequestTo.status}"
     }
     stages {
-        stage([
+        stage('DockerComposeBuild') {
+            [
             $class: 'DockerComposeBuild',
             dockerComposeFile: './docker-compose.yml',
             useCustomDockerComposeFile: true
-        ])
+            ]
+        }
         stage('Build') { 
             steps {
                 sh 'npm install' 
